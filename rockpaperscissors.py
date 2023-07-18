@@ -1,11 +1,20 @@
 import random
 import time
 def script():
-	playrsp = input("pick rock, paper or scissors \n")
+	while True:
+		playrsp = input("pick rock, paper or scissors \n")
+		if playrsp in ("rock","paper","scissors"):
+			break
+		print("only type rock, paper or scissors, try again")
+		time.sleep(1)
 	complist = ["rock","paper","scissors"]
 	playlist = ["paper","scissors","rock"]
+	scoreboard = {
+  "player": 0,
+  "computer": 0
+}
 	comprsp = (random.choice(complist))
-	print(comprsp) 
+	print(comprsp)
 	if complist.index(comprsp) == playlist.index(playrsp):
 		print("You win!")
 	elif comprsp  == playrsp:
