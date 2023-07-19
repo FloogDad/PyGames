@@ -17,11 +17,14 @@ def script():
 	print(comprsp)
 	if complist.index(comprsp) == playlist.index(playrsp):
 		print("You win!")
+		scoreboard["player"]+=1
 	elif comprsp  == playrsp:
 		print("It's a Tie!")
 	else:
 		print("You lose!")
+		scoreboard["computer"]+=1
 	while True:
+		print(scoreboard)
 		restart = input("Do you want to play again? (yes/no)")
 		if restart in ('yes,''y'):
 			script()
