@@ -6,7 +6,7 @@ scoreboard = {
 }
 def script():
 	while True:
-		playrsp = input("pick rock, paper or scissors \n")
+		playrsp = input("Pick rock, paper or scissors \n")
 		if playrsp in ("rock","paper","scissors"):
 			break
 		print("only type rock, paper or scissors, try again")
@@ -14,7 +14,7 @@ def script():
 	complist = ["rock","paper","scissors"]
 	playlist = ["paper","scissors","rock"]
 	comprsp = (random.choice(complist))
-	print(comprsp)
+	print("computer picked "+comprsp)
 	if complist.index(comprsp) == playlist.index(playrsp):
 		print("You win!")
 		scoreboard["player"]+=1
@@ -24,7 +24,8 @@ def script():
 		print("You lose!")
 		scoreboard["computer"]+=1
 	while True:
-		print(scoreboard)
+		for k,v in scoreboard.items():
+			print(str(k)+" score = "+str(v))
 		restart = input("Do you want to play again? (yes/no)")
 		if restart in ('yes,''y'):
 			script()
