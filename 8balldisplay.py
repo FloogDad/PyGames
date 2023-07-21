@@ -8,13 +8,23 @@ Q1 = tk.Label(window, text="What is your question?")
 Q1.pack()
 E1 = tk.Entry(window)
 E1.pack()
+L1 = tk.Label(window)
 
-#window.geometry("750x250")
+#window.geometry("200x200")
 
 def prediction():
-    tk.Label(window, text =random.choice(val)).pack()
-
+    if E1.get() == "" or "?" not in E1.get():
+        L1.config(text= "You haven't asked a question!")
+        L1.pack()
+    else:
+        L1.config(text =random.choice(val))
+        L1.pack()
+        B1.config(state="disabled")
 
 B1 = tk.Button(window,text="Shake the magic 8-ball!",command= lambda: prediction())
 B1.pack()
+
+#L1 = tk.Label(window,text=E1.get())
+#L1.pack()
+
 window.mainloop()
