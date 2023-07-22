@@ -20,9 +20,25 @@ def prediction():
         L1.config(text =random.choice(val))
         L1.pack()
         B1.config(state="disabled")
+        B2.config(state="disabled")
+
+def clear():
+    E1.delete(0,'end')
+
+def reset():
+    B1.config(state="active")
+    B2.config(state="active")
+    L1.config(text="")
+    E1.delete(0,'end')
 
 B1 = tk.Button(window,text="Shake the magic 8-ball!",command= lambda: prediction())
 B1.pack()
+
+B2 = tk.Button(window, text="Clear text",command= lambda: clear())
+B2.pack()
+
+B3 = tk.Button(text="Play Again",command= lambda: reset())
+B3.pack()
 
 #L1 = tk.Label(window,text=E1.get())
 #L1.pack()
