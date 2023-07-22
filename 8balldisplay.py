@@ -5,9 +5,9 @@ val = ["It is certain","It is decidedly","Without a doubt","Yes definitely","You
 window = tk.Tk()
 window.title("Magic 8 Ball")
 Q1 = tk.Label(window, text="What is your question?")
-Q1.pack()
+Q1.pack(anchor='nw',side='left')
 E1 = tk.Entry(window)
-E1.pack()
+E1.pack(anchor='n',side='left')
 L1 = tk.Label(window)
 
 #window.geometry("200x200")
@@ -31,14 +31,22 @@ def reset():
     L1.config(text="")
     E1.delete(0,'end')
 
-B1 = tk.Button(window,text="Shake the magic 8-ball!",command= lambda: prediction())
+def close():
+    window.destroy()
+
+
+B1 = tk.Button(window,text="Shake the magic 8-ball!",command=prediction)
 B1.pack()
 
-B2 = tk.Button(window, text="Clear text",command= lambda: clear())
-B2.pack()
+B2 = tk.Button(window, text="Clear text",command=clear)
+B2.pack(anchor='w',side='top')
 
-B3 = tk.Button(text="Play Again",command= lambda: reset())
-B3.pack()
+B3 = tk.Button(text="Play Again",command=reset)
+B3.pack(anchor='sw',side='top')
+
+B4 = tk.Button(text="Quit",command=close)
+B4.pack(anchor='sw',side='bottom')
+
 
 #L1 = tk.Label(window,text=E1.get())
 #L1.pack()
